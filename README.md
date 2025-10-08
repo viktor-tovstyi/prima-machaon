@@ -42,7 +42,7 @@ This repository offers a concrete, step-by-step example of implementing a MachaO
    - Azure CLI (configured for your Azure subscription)  
 
 3. **Setup Environment**:  
-   Follow the configuration guidelines provided in [Deployment Setup](deployment-setup.md). This includes preparing container images, setting up the AKS cluster, and configuring necessary integrations.
+   Follow the configuration guidelines provided in [Deployment Setup](docs/deployment-setup.md). This includes preparing container images, setting up the AKS cluster, and configuring necessary integrations.
 
 4. **Deploy to Azure AKS**:  
    Use the provided Kubernetes YAML files to deploy the application to your Azure AKS environment:  
