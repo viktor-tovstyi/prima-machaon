@@ -1,52 +1,69 @@
-# Prima-MachaOn
+# Prima MachaOn  
 
-**Prima-MachaOn** is an example project demonstrating how to use the **Machanism platform** to create a dedicated, deployment-ready customer application. By leveraging the **modular architecture** of Machanism, Prima-MachaOn integrates reusable libraries and components from **Seed Projects** to deliver custom functionality in a scalable, maintainable, and adaptable manner.
+**Prima MachaOn** is an example project demonstrating how to leverage the **Machanism platform** for the creation of a dedicated customer-oriented application. It showcases the practical integration of reusable libraries and modules from **Machanism Seed Projects** and Non-Seed Projects, while adhering to the core principles of **Clean Architecture**—modularity, reusability, scalability, and maintainability.  
 
-This project specifically relies on the **Macha** and **Machb** Seed Projects as dependencies to showcase how existing modular libraries can be combined and extended to meet specific customer needs. Prima-MachaOn serves as both a reference implementation and a practical template for building real-world applications in alignment with **Clean Architecture principles**.
+This project provides a complete, operational implementation that developers can use as a reference or blueprint for building customized systems with Machanism libraries. It includes deployment configurations and application-specific adaptations tailored to meet real-world customer requirements.  
 
-## References
+---
 
-- [Machanism Platform](https://machanism.org): A Clean Architecture-driven platform for creating modular, reusable, and scalable software systems.  
-- [Seed Project: Macha](https://macha.machanism.org): A library designed for the e-commerce domain, written in Java and TypeScript.  
-- [Seed Project: Machb](https://machb.machanism.org): A complementary library for the e-commerce domain, implemented in TypeScript.
+## About Prima MachaOn  
 
-## Key Features
+Prima MachaOn was created based on the resources provided by the **[MachaOn](https://macha.machanism.org/machaon/containers-machaon/azure-containers/azure-aks-machaon)** project. It utilizes the foundational deployment configurations and reusable components available from the MachaOn ecosystem, demonstrating how to:  
+- Integrate **Core libraries** and **Applications modules** available within Machanism Seed Projects.  
+- Customize workflows and add customer-specific requirements.  
+- Deploy an application to **Azure Kubernetes Service (AKS)** using containerization best practices.
 
-- **Modular and Reusable:** Built entirely using task-focused, reusable components from Machanism Seed Projects.
-- **Customer-Specific Logic:** Extends the functionality of Macha and Machb Seed libraries to implement features tailored to Prima's requirements.
-- **Clean Architecture Compliant:** Follows Machanism's architectural principles to ensure maintainability and scalability.
-- **Deployment Ready:** Fully operational system configured for deployment, acting as a blueprint for customer-specific projects.
+This repository offers a concrete, step-by-step example of implementing a MachaOn Project for a business-specific use case.
 
-## Requirements
+---
 
-To work with Prima-MachaOn, ensure you have the following set up:
-- Access to **Machanism’s artifact repositories** (e.g., Maven, NPM) to resolve dependencies for Macha and Machb.
-- Familiarity with the **Machanism platform** ([Introduction to Machanism](https://machanism.org)) and **Seed Projects** ([Seed Project Overview](https://machanism.org/seed-project)).
+## Features  
 
-## How to Use
+- **Integration with Machanism Libraries**: Prima MachaOn connects reusable libraries built with Machanism Seed Projects to deliver modular and scalable functionality.  
+- **Clean Architecture Compliance**: Adheres to Machanism's philosophy of separating concerns and keeping the system modular and maintainable.  
+- **Azure Kubernetes Service (AKS)** Deployment**: Provides a deployment-ready configuration using containers to build cloud-native systems with Azure infrastructure.  
+- **Customizability**: Demonstrates how to adapt and extend Core and Applications libraries to match unique business requirements.  
+- **Reference Implementation**: Serves as a practical blueprint for building new, customer-specific projects on the Machanism platform.
 
-1. **Install Dependencies:**  
-   Prima-MachaOn leverages the Macha and Machb libraries. Ensure you configure your package or build manager (e.g., Maven for Java, NPM for TypeScript) to pull these dependencies from the Machanism artifact repository.
+---
 
-2. **Understand the Project Structure:**  
-   Prima-MachaOn follows the Machanism project hierarchy:
-   - **Core Modules**: Contain reusable entities and base functionality.
-   - **Applications Layer**: Adapts the Core libraries for customer-specific workflows.
-   - **Deployment Configuration**: Combines all components to produce the fully functional application.
+## Getting Started  
 
-3. **Run and Test:**  
-   Configure, build, and run Prima-MachaOn to explore how the components integrate seamlessly to create a customer-ready system.
+1. **Clone the Prima MachaOn Repository**:  
+   ```
+   git clone https://github.com/viktor-tovstyi/prima-machaon.git
+   cd prima-machaon
+   ```  
 
-4. **Customize Further:**  
-   Use Prima-MachaOn as a reference to extend or tailor functionality for your own specific business needs.
+2. **Install Prerequisites**:  
+   Ensure you have the following installed:  
+   - Docker  
+   - Kubernetes CLI (kubectl)  
+   - Azure CLI (configured for your Azure subscription)  
 
-## Support
+3. **Setup Environment**:  
+   Follow the configuration guidelines provided in [Deployment Setup](deployment-setup.md). This includes preparing container images, setting up the AKS cluster, and configuring necessary integrations.
 
-For questions or to learn more about building modular systems with Machanism, refer to:  
-- **[Machanism Documentation](https://machanism.org/architecture):** For detailed guidance on Clean Architecture and the platform's structure.  
-- **[Macha Seed Project](https://macha.machanism.org):** For understanding the components used in Prima-MachaOn.  
-- **[Machb Seed Project](https://machb.machanism.org):** For TypeScript-based reusable components.
+4. **Deploy to Azure AKS**:  
+   Use the provided Kubernetes YAML files to deploy the application to your Azure AKS environment:  
+   ```
+   kubectl apply -f deployment/
+   ```
 
-Feel free to contribute or submit issues directly in this repository if you encounter any challenges while using Prima-MachaOn.
+---
 
-**Machanism Philosophy:** *Divide and Use* — Build modular solutions that adapt and scale effortlessly.
+## References  
+
+- **Machanism Platform**: Learn more about the Machanism modular development platform at **[https://machanism.org](https://machanism.org)**.  
+- **Seed Projects**: Explore foundational Seed Projects at **[https://machanism.org/seed-project](https://machanism.org/seed-project)**.  
+- **MachaOn Projects**: For more details about MachaOn reference implementations, visit **[https://macha.machanism.org/machaon/](https://macha.machanism.org/machaon/)**.  
+
+---
+
+## License  
+
+This project is licensed under the **MIT License**. For more details, see the [LICENSE](LICENSE) file.  
+
+---
+
+**Note**: Prima MachaOn is intended as an example project and may require customization to align with your specific business requirements or deployment environments. Use it as a starting point to build tailored solutions based on **Machanism libraries** and architectural principles.  
