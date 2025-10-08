@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: macha-azure-aks-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: macha-azure-aks-app
+  template:
+    metadata:
+      labels:
+        app: macha-azure-aks-app
+    spec:
+      containers:
+        - name: macha-app
+          image: machanism/macha-azure-aks-app:0.0.1.6
+          ports:
+            - containerPort: 3000
+          env:
+            - name: ctp_clientSecret
+              valueFrom:
+                secretKeyRef:
+                  name: macha-secrets
+                  key: CTP_SECRET_KEY

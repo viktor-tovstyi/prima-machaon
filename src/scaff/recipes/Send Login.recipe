@@ -1,0 +1,15 @@
+<Recipe name="Send Login">
+	<Table name="Login Data">
+		<var name="username" default="john.doe@example.com" /> 
+		<var name="password" default="securepassword123" type="password" /> 
+	</Table> 
+	<Var name="body" level="info" type="json">{"username": "$var{username}", "password": "$var{password}"}</Var> 
+	<Post name="response" url="$var{api_url}/login" body="$var{body}" /> 
+	<Out name="response" type="json" /> 
+	<If isNotNull="response::token">
+		<Var name="!JWT" source="response::token" /> 
+		<Else>
+			<Remove name="!JWT" /> 
+		</Else> 
+	</If> 
+</Recipe> 

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: macha-azure-aks-app-service  # Name of your service
+spec:
+  type: LoadBalancer          # This exposes the service via a public IP
+  selector:
+    app: macha-azure-aks-app  # Match the app label used in your deployment spec
+  ports:
+    - port: 80                # External port
+      targetPort: 3000        # Port inside the container (Spring Boot app)

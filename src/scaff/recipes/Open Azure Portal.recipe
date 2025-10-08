@@ -1,0 +1,13 @@
+<Recipe name="Open Azure Portal">
+	<Extern tab="az" class="Web" timeout="2000">
+		<Page url="https://portal.azure.com" /> 
+		<ElementNotExists xpath="//*[@id='_weave_e_5']">
+			<Text value="machanism.org@gmail.com" name="loginfmt" /> 
+			<Click id="idSIButton9" /> 
+			<Click xpath="//span[contains(text(), 'Use your face')]" /> 
+			<ElementExists xpath="//h1[contains(text(), 'Stay signed in?')]" timeout="30000">
+				<Click xpath="//button[contains(text(), 'Yes')]" /> 
+			</ElementExists> 
+		</ElementNotExists> 
+	</Extern> 
+</Recipe> 

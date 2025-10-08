@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="org.machanism.macha.core.adapters.spring.web.user.controller" />
+
+	<bean name="configurator"
+		class="org.machanism.macha.core.commons.configurator.PropertiesConfigurator">
+		<constructor-arg value="application.properties" />
+	</bean>
+
+	<bean id="ctp_configurator" class="org.machanism.macha.core.commons.configurator.PrefixStrippingConfigurator">
+		<constructor-arg ref="configurator" />
+		<property name="prefixes" value="ctp." />
+	</bean>
+
+	<bean id="authService" class="org.machanism.macha.apps.adapters.commercetools.user.KCTUserAdapter">
+		<constructor-arg ref="ctp_configurator"/>
+	</bean>
+
+	<bean id="userRegister" class="org.machanism.macha.core.interactors.user.UserRegister">
+		<constructor-arg ref="authService" />
+	</bean>
+
+	<bean id="userLookup" class="org.machanism.macha.apps.interactors.user.KUserLookup">
+		<constructor-arg ref="authService" />
+	</bean>
+
+	<bean id="login" class="org.machanism.macha.apps.interactors.user.KLogin">
+		<constructor-arg name="authService" ref="authService" />
+		<constructor-arg name="userLookup" ref="userLookup" />
+	</bean>
+
+	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="propertySources">
+			<list>
+				<bean class="org.machanism.macha.core.commons.spring.configurator.SpringConfigurator">
+					<constructor-arg ref="configurator" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+</beans>

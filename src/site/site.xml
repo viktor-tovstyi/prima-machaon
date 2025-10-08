@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 https://maven.apache.org/xsd/decoration-1.8.0.xsd"
+	name="${project.name}" combine.self="override">
+	<version position="right"/>
+	<publishDate position="right"/>
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>2.1.0</version>
+	</skin>
+	<custom>
+		<fluidoSkin>
+			<googleSearch />
+			<sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
+			<copyrightClass>pull-right</copyrightClass>
+			<topBarEnabled>false</topBarEnabled>
+			<sideBarEnabled>true</sideBarEnabled>
+			<topBarContainerStyle>width: 90%;</topBarContainerStyle>
+
+		</fluidoSkin>
+	</custom>
+	<bannerLeft>
+		<name>Macha</name>
+		<src>http://macha.machanism.org/images/logo.png</src>
+		<href>http://macha.machanism.org/</href>
+	</bannerLeft>
+	<poweredBy>
+		<logo img="https://machanism.org/img/logo.png"
+			href="http://www.machanism.org/" />
+	</poweredBy>
+	<body>
+		<head>
+			<![CDATA[
+				<meta name="keywords" content="${keywords}">
+				<meta name="description" content="${project.description}">
+				<meta name="author" content="Viktor Tovstyi">
+				<meta property="og:title" content="${project.name}" />
+				<meta property="og:description" content="${project.description}" />
+				<meta property="og:url" content="${project.url}" />
+				<meta property="og:type" content="website" />
+				<meta property="og:image" content="/images/logo-big.png" />
+				<meta property="og:image:type" content="image/png" />
+				<meta property="og:image:width" content="280" />
+				<meta property="og:image:height" content="280" />
+				
+				<link rel="stylesheet" href="https://macha.machanism.org/css/site.css" />
+				<script type="text/javascript" src="https://machanism.org/js/custom.js"></script>
+			]]>
+		</head>
+		<breadcrumbs>
+			<item name="Macha" href="http://macha.machanism.org/" />
+			<item name="MachaOn" href="http://macha.machanism.org/machaon" />
+			<item name="Containers" href="http://macha.machanism.org/machaon/containers-machaon" />
+		</breadcrumbs>
+		<menu ref="parent" />	
+		<menu ref="modules" />
+		<menu ref="reports" />
+		<footer><![CDATA[©2025 Machanism. All Rights Reserved.
+		<a href='https://www.free-counters.org/'>https://www.free-Counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=33022683797d1121560b3f5b97621c10ec19cb47'></script>
+<script type="text/javascript" src="https://freevisitorcounters.com/en/home/counter/1377968/t/4"></script>]]></footer>
+	</body>
+</project>

@@ -1,0 +1,10 @@
+<Recipe name="CT Merchant Center">
+	<Extern tab="ct" class="Web" timeout="4000">
+		<Page url="$var{CT_HOME}" /> 
+		<Var name="ct_email" init="console" /> 
+		<Var name="ct_password" init="console" type="password" /> 
+		<Text name="email" value="$var{ct_email}" /> 
+		<Text name="password" value="$var{ct_password}" /> 
+		<Click xpath="*//button[@label='Sign in']" /> 
+	</Extern> 
+</Recipe> 

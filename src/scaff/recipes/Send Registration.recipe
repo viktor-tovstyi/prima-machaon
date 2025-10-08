@@ -1,0 +1,9 @@
+<Recipe name="Send Registration">
+	<Table name="Registration Data">
+		<var name="username" /> 
+		<var name="password" /> 
+	</Table> 
+	<Var name="body" level="info" type="json">{"username": "$var{username}", "password": "$var{password}"}</Var> 
+	<Post name="response" url="$var{api_url}/register" body="$var{body}" /> 
+	<Out name="response" type="json" /> 
+</Recipe> 
