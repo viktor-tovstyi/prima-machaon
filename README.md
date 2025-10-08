@@ -21,7 +21,7 @@ This repository offers a concrete, step-by-step example of implementing a MachaO
 
 - **Integration with Machanism Libraries**: Prima MachaOn connects reusable libraries built with Machanism Seed Projects to deliver modular and scalable functionality.  
 - **Clean Architecture Compliance**: Adheres to Machanism's philosophy of separating concerns and keeping the system modular and maintainable.  
-- **Azure Kubernetes Service (AKS)** Deployment**: Provides a deployment-ready configuration using containers to build cloud-native systems with Azure infrastructure.  
+- **Azure Kubernetes Service (AKS) Deployment**: Provides a deployment-ready configuration using containers to build cloud-native systems with Azure infrastructure.  
 - **Customizability**: Demonstrates how to adapt and extend Core and Applications libraries to match unique business requirements.  
 - **Reference Implementation**: Serves as a practical blueprint for building new, customer-specific projects on the Machanism platform.
 
