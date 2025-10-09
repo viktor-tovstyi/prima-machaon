@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>my-machaon</groupId>
+		<artifactId>prima-machaon</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>prima-machaon-backend</artifactId>
+	<name>Prima MachaOn Backend</name>
+
+	<properties>
+		<java.version>17</java.version>
+		<macha.version>0.0.3</macha.version>
+	</properties>
+
+	<dependencies>
+		<!-- macha rest services -->
+		<dependency>
+			<groupId>org.machanism.macha.core.adapters.spring.web</groupId>
+			<artifactId>user-controller</artifactId>
+			<version>${macha.version}</version>
+		</dependency>
+
+		<!-- macha commons -->
+		<dependency>
+			<groupId>org.machanism.macha.core.commons.spring</groupId>
+			<artifactId>spring-configurator</artifactId>
+			<version>${macha.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.machanism.macha.core.interactors</groupId>
+			<artifactId>user-interactors</artifactId>
+			<version>${macha.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.machanism.macha.apps.interactors</groupId>
+			<artifactId>app-user-interactors</artifactId>
+			<version>0.0.4-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.machanism.macha.apps.adapters</groupId>
+			<artifactId>apps-commercetools-adapter</artifactId>
+			<version>${macha.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.machanism.macha.core.adapters.commercetools</groupId>
+			<artifactId>commercetools-user-adapter</artifactId>
+			<version>${macha.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>prima-api</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.14.1</version>
+				<configuration>
+					<release>${java.version}</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.1.4</version>
+				<configuration>
+					<mainClass>machaon.Application</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+	

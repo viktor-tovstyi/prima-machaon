@@ -1,0 +1,171 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>my-machaon</groupId>
+		<artifactId>prima-machaon</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<packaging>pom</packaging>
+	<artifactId>prima-machaon-frontend</artifactId>
+	<name>Prima MachaOn Frontend</name>
+
+	<properties>
+		<scm-path>/machaon/faas/oci/machaon-sl-oci-1/frontend</scm-path>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<executions>
+					<!-- Required: The following will ensure `npm install`
+						is called
+							 before anything else during the 'Default Lifecycle' -->
+					<execution>
+						<id>npm install (initialize)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<!-- Required: The following will ensure `npm install`
+						is called
+							 before anything else during the 'Clean Lifecycle' -->
+					<execution>
+						<id>npm install (clean)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+					</execution>
+
+					<!-- Optional: The following will output the npm
+						configuration.
+							 I do this so my CI logs will show the npm information used
+								 for the build -->
+					<execution>
+						<id>npm config list (validate)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>config</argument>
+								<argument>list</argument>
+							</arguments>
+						</configuration>
+					</execution>
+
+					<!-- Required: This following calls `npm run build`
+						where 'build' is
+							 the script name I used in my project, change this if yours is
+								 different -->
+					<execution>
+						<id>npm run build (compile)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>build</argument>
+							</arguments>
+						</configuration>
+					</execution>
+
+					<!-- Optional: The following will publish to npm if you
+						run
+							 `mvn deploy`. -->
+					<execution>
+						<id>npm run publish (deploy)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>publish</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+
+				<configuration>
+					<environmentVariables>
+						<!-- The following parameters create an NPM sandbox
+							for CI -->
+						<NPM_CONFIG_PREFIX>${basedir}/npm</NPM_CONFIG_PREFIX>
+						<NPM_CONFIG_CACHE>${NPM_CONFIG_PREFIX}/cache</NPM_CONFIG_CACHE>
+						<NPM_CONFIG_TMP>${project.build.directory}/npmtmp</NPM_CONFIG_TMP>
+					</environmentVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.21.0</version>
+				<configuration>
+					<siteDirectory>${basedir}/docs</siteDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.funthomas424242</groupId>
+				<artifactId>plantuml-maven-plugin</artifactId>
+				<configuration>
+					<sourceFiles>
+						<includes>
+							<include>docs/puml/**/*.*</include>
+						</includes>
+					</sourceFiles>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.ganteater</groupId>
+				<artifactId>ae-maven-plugin</artifactId>
+				<configuration>
+					<aeDir>src/scaff</aeDir>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.9.0</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>scm</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<scm>
+		<connection>scm:svn:${scm-root}${scm-branch}${scm-path}</connection>
+		<developerConnection>scm:svn:${scm-root}${scm-branch}${scm-path}</developerConnection>
+		<url>${scm-web}${scm-branch}${scm-path}</url>
+	</scm>
+	
+</project>

@@ -1,0 +1,27 @@
+{
+	"name": "@macha/apps-vue-ui",
+	"private": true,
+	"version": "0.0.1",
+	"main": "./src/main.ts",
+	"scripts": {
+		"serve": "(for /F \"tokens=*\" %i in (.env) do set %i) && vue-cli-service serve",
+		"docker-build": "vue-cli-service build",
+		"build": "(for /F \"tokens=*\" %i in (.env) do set %i) && vue-cli-service build"
+	},
+	"dependencies": {
+		"@machb/front-adapters-products": "^0.0.1",
+		"@machb/front-base": "^0.0.1",
+		"@machb/vue-lib": "^0.0.1",
+		"cors": "^2.8.5",
+		"primeflex": "^2.0.0",
+		"primeicons": "^6.0.0",
+		"primevue": "^3.23.0"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-typescript": "^5.0.8",
+		"@vue/cli-service": "^5.0.8",
+		"@vue/compiler-sfc": "^3.0.0",
+		"typescript": "^4.1.2",
+		"vue-loader": "^16.8.3"
+	}
+}

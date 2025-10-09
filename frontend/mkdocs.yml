@@ -1,0 +1,24 @@
+site_name: MachaOn-SL-AWS-1 Frontend
+site_description: MachaOn-SL-AWS-1 is a faas frontend for MachcOn, designed to provide a user-friendly interface for managing and interacting with MachaOn-SL-AWS-1 services.
+site_author: Viktor Tovstyi
+site_url: https://machc.machanism.org/machaon/faas/aws/MachaOn-SL-AWS-1/index.html
+repo_url: https://sourceforge.net/p/machc/svn/HEAD/tree/trunk/machaon/faas/aws/MachaOn-SL-AWS-1/frontend
+
+nav:
+  - Machc: https://machc.machanism.org
+  - MachaOn Projects:
+    - Introduction: /machaon
+    - MachcOn-C1: /machaon/containers/machaon-c1
+    - MachaOn-SL-AWS-1: /machaon/faas/aws/MachaOn-SL-AWS-1
+
+
+site_dir: !ENV [MACHC_SITE, 'site']
+extra_css:
+  - http://machc.machanism.org/css/site.css
+markdown_extensions:
+  - meta
+  - footnotes
+  - admonition
+  - attr_list
+
+copyright: ©2025 Machanism. All Rights Reserved.

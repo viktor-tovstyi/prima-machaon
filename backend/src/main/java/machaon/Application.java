@@ -1,4 +1,4 @@
-package org.machanism.macha.machaon.containers.services;
+package machaon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
